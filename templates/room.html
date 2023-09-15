@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+<!-- Extends the 'base.html' template -->
+
+{% block content %}
+<!-- Defines a content block that can be overridden in child templates -->
+
+<div class="message-box">
+  <!-- Creates a container for the chat messages -->
+  <h2>Chat Room: {{code}}</h2>
+  <!-- Displays the chat room code -->
+  <div class="messages" id="messages"></div>
+  <!-- Creates a container for displaying chat messages -->
+  <div class="inputs">
+    <!-- Creates a container for message input and send button -->
+    <input
+      type="text"
+      rows="3"
+      placeholder="Message"
+      name="message"
+      id="message"
+    />
+    <button type="button" name="send" id="send-btn" onClick="sendMessage()">
+      Send
+    </button>
+    <!-- Creates a button for sending messages -->
+  </div>
+</div>
+
+<script type="text/javascript">
+  var socketio = io(); // Initializes a socket.io connection
+
+  const messages = document.getElementById("messages"); // Retrieves the messages container element
+
+  // Function to create and display a chat message
+  const createMessage = (name, msg) => {
+    const content = `
+    <div class = "text">
+        <span>
+            <strong> ${name}</strong>: ${msg} 
+        </span>
+
+        <span class = "muted">
+            ${new Date().toLocaleString()} 
+        </span>
+    </div>
+    `;
+
+    messages.innerHTML += content; // Appends the message content to the messages container
+  };
+
+  // Listens for incoming chat messages and calls createMessage to display them
+  socketio.on("message", (data) => {
+    createMessage(data.name, data.message);
+  });
+
+  // Function to send a message to the server
+  const sendMessage = () => {
+    const message = document.getElementById("message");
+    if (message.value == "") return; // Does not send an empty message
+    socketio.emit("message", { data: message.value }); // Emits a message event to the server
+    message.value = ""; // Clears the message input field
+  };
+</script>
+
+{% for msg in messages %}
+<!-- Loops through the list of messages -->
+<script type="text/javascript">
+  createMessage("{{msg.name}}", "{{msg.message}}"); // Calls createMessage to display each message
+</script>
+{% endfor %}
+<!-- Ends the loop -->
+{% endblock %}
+<!-- Ends the content block -->

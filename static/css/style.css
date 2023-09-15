@@ -1,0 +1,168 @@
+/* Set background color for HTML and body */
+html {
+    background-color: #3498db; /* Blue background color */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #3498db; /* Blue background color */
+}
+
+/* Styles for the home screen */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #3498db; /* Blue background color */
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #ffffff; /* White background color */
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.create-btn {
+    width: 100%;
+    background-color: #3498db; /* Green button color */
+    color: #ffffff; /* White text color */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    max-width: 200px; /* Adjust the width as needed */
+}
+
+.create-btn:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+h3 {
+    text-align: center;
+    margin: 0;
+    color: #333; /* Dark text color */
+    font-size: 32px; /* Increased text size */
+}
+
+.error {
+    color: #e74c3c; /* Red error text color */
+}
+
+/* Styles for the chat room */
+.message-box {
+    border: 2px solid #333; /* Dark border */
+    border-radius: 10px;
+    background-color: #f0f0f0; /* Light gray background */
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    align-items: stretch;
+    padding: 20px; /* Increase the padding for the message box */
+}
+
+.messages {
+    overflow-y: scroll;
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+}
+
+.inputs {
+    padding: 10px;
+    display: flex;
+    background-color: #fff; /* White background for input area */
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 0;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #3498db; /* Blue border color on focus */
+    outline: none;
+}
+
+h2 {
+    text-align: center;
+    margin: 10px 0; /* Add margin top and bottom */
+    color: #333; /* Dark text color */
+}
+
+#message {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px;
+}
+
+#send-btn {
+    background-color: #3498db; /* Blue button color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 10px 20px; /* Increase the padding for the send button */
+    border-radius: 5px;
+    margin-left: 10px; /* Add some space between input and button */
+    cursor: pointer;
+}
+
+#send-btn:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+.text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px; /* Adjust padding as needed */
+    border-bottom: 1px solid #ccc; /* Light border between messages */
+    background-color: #fff; /* White message background */
+    max-width: 96%; /* Adjust the max-width percentage as needed */
+}
+
+.muted {
+    font-size: 10px;
+    color: #999; /* Gray text color for timestamp */
+}
+
+.join-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* Adjust the font size as needed */
+    color: #333; /* Dark text color */
+    margin-bottom: 10px; /* Add some spacing between text and input field */
+}
+
+label {
+    font-size: 16px;
+}
+
+.narrow-btn {
+    max-width: 200px; /* Adjust the maximum width as needed */
+    width: 100%;
+}
+
+/* Add more styles as needed */

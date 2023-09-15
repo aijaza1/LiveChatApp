@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+<!-- Extends the 'base.html' template -->
+
+{% block content %}
+<!-- Defines a content block that can be overridden in child templates -->
+
+<form method="post" class="buttons">
+  <!-- Creates a form element with the 'post' method and 'buttons' class -->
+  <h3>Enter The Chat Room</h3>
+  <!-- Displays a heading -->
+
+  <div>
+    <label>Username:</label>
+    <!-- Displays a label for a text input field -->
+    <input
+      type="text"
+      placeholder="Enter your name"
+      name="name"
+      value="{{name}}"
+    />
+  </div>
+  <button type="submit" name="create" class="create-btn">Create a Room</button>
+
+  <div>
+    <label>Join Room:</label>
+    <!-- Displays a heading for the "Join a Room" section -->
+
+    <input type="text" placeholder="Room Code" name="code" value="{{code}}" />
+  </div>
+  <button type="submit" name="join" class="create-btn">Join Room</button>
+
+  <!-- Creates a button for creating a room -->
+
+  {% if error %}
+  <ul>
+    <li>{{error}}</li>
+    <!-- Displays an error message if 'error' is defined -->
+  </ul>
+  {% endif %}
+</form>
+
+{% endblock %}
+<!-- Ends the content block -->
